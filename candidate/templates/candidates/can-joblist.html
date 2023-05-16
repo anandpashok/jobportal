@@ -1,0 +1,33 @@
+{%extends 'candidates/base.html'%}
+{%block body_block%}
+{%load static%}
+<div class="row">
+    {%for job in Jobs%}
+    <div class="col-4">
+        <div class="card" style="width: 18rem;">
+          <img src="{{request.user.employer.logo.url}}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{job.job_title}}</h5>
+            <p class="card-text">{{job.description}}</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">{{job.location}}</li>
+            <li class="list-group-item">{{job.salary}}</li>
+            <li class="list-group-item">{{job.created_date}}</li>
+          </ul>
+          <div class="card-body">
+            <a href="{%url 'can-detailjob' job.id %}" class="card-link">view more</a>
+            <a href="#" class="card-link">Another link</a>
+  </div>
+</div>
+
+    </div>
+
+{%endfor%}
+</div>
+
+
+
+
+
+{%endblock%}
